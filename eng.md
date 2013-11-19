@@ -1,3 +1,6 @@
+Building Multiplayer Games with Node.js and Socket.IO
+-----------------------------------------------------------
+
 *By [Eric Terpstra][1]*
 
 With the release of the Ouya, Xbox One and PS4 this year, couch-based console
