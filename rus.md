@@ -19,7 +19,6 @@ Express). После всех проделанных операций выпол
 
 Анаграмматикс реализован только с помощью HTML, CSS и JavaScript. Чтобы сохранить код игры простым насколько это возможно использование библиотек и фреймворков было сведено к минимуму. Главные технологии, используемые в игре перечислены ниже:
 
-
 * **Node.js** - спользуется для создания бекенда игры и позволяет использовать фреймворк Express и библиотеку Socket.IO. Также немного логики игры имеет место быть на сервере. Она реализована в отдельном node-модуле о котором мы поговорим позже.
 * **Express** - Сам по себе Node.js покрывает множество необходимых требования для создания веб-приложений. Добавление Express позволит упростить хостинг статичных файлов (HTML, CSS и JavaScript). Express также будет использовать для создания системы логов и окружения совместимого с Socket.IO.   
 * **Socket.IO** - позволяет невыразимо просто создать связь в реальном времени между браузером и сервером (в данном случае, с запущенным Node.js и Express). По умолчанию, Socket.IO будет использовать протокол _вебсокетов_, если он поддерживает браузером; Старые браузеры такие как IE9 не поддерживают этот протокол — в этом случае Socket.IO будет деградировать до Flash-сокетов или _long-polling_ в AJAX.
@@ -29,21 +28,15 @@ Express). После всех проделанных операций выпол
     * [FastClick.js][4] – маленькая библиотека убирающая задержку в 300 миллисекунд на мобильных устройствах при единичном нажатии экрана. Это позволит сделать игру на смартфонах более отзывчивой.
 * CSS – немного обычного CSS для оформления игры.
 
-## The Architecture
 
-![architecture][5]
+## Архитектура
 
-The basic setup for the game follows the recommended configuration for using
-Socket.IO with Express on the[Socket.IO website][6]. In this configuration,
-Express is used to handle HTTP requests coming into the Node application. The 
-Socket.IO module attaches itself to Express and listens on the same port for 
-incoming websocket connections.
+![архитектура][5]
 
-When a browser connects to the application, it is served index.html and all the
-required JavaScript and CSS to begin. The JavaScript in the browser will 
-initiate a connection to Socket.IO and create a websocket connection. Each 
-websocket connection has a unique identifier (uid) so Node and Socket.IO can 
-keep track of which communications to send to which browser.
+В целом архитектура игры следует рекомендованной конфигурации по использованию Socket.IO вместе с Express, взятой с [сайта Socket.IO][6]. В этой конфигурации Express используется для обработки HTTP-запросов приходящих нашему веб-приложению. Модуль Socket.IO присоединяется к Express и начинает следить за тем же портом на предмет входящих websocket-соединений. (!!!)
+
+Когда ваше приложение открывается в браузере, оно состоит из файла index.html и необходимого для старта JavaScript и CSS кода. JavaScript в браузере подключается к Socket.IO и создаёт websocket-соединение. Каждое websocket-соединение обладает уникальным идентификатором (uid) для того, чтобы Node и Socket.IO могли отслеживать каждое соединение и отправлять сокеты в нужному пользователю.
+
 
 ## The Code – Server Side Setup
 
