@@ -566,7 +566,7 @@ Node.js. Если вы никогда не работали с приложен�
 [17]: http://socket.io/
 [18]: https://github.com/learnboost/socket.io/wiki
 
-[Рисунок 1]: img/architecture.png
+[Рисунок 1]: img/architecture_rus.png
 [Рисунок 2]: img/chrome_network-640x360.jpg
 [Рисунок 3]: img/start_game.jpg
 [Рисунок 4]: img/gameplay.jpg
