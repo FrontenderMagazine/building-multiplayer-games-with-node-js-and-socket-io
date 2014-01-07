@@ -31,7 +31,7 @@ However, tapping an incorrect word will lose points for the player. After 10
 rounds, the player with the most points wins!
 
 To download the code and play locally, first ensure that Node.js is installed.
-Visit the[Anagrammatix GitHub repo][2], clone the repository with 
+Visit the [Anagrammatix GitHub repo][2], clone the repository with 
 `git clone https://github.com/ericterpstra/anagrammatix.git` and then run 
 `npm install` to download and install all the dependencies (Socket.IO and
 Express). Once that is complete, run`node index.js` to start the game server.
@@ -55,14 +55,14 @@ The major technologies used in the game are listed below:
 *   **Node.js** - Node provides the foundation for the back-end portion of the
     game, and allows the use of the Express framework, and the Socket.IO library. 
     Also, some of the game logic for Anagrammatix takes place on the server. This 
-    logic is contained in a custom
-     *Node Module* which will be discussed later.
+    logic is contained in a custom *Node Module* which will be discussed later.
+
 *   **Express** - On its own, Node.js does not provide many of the necessary
     requirements for creating a web application. Adding Express makes it much 
     simpler to serve static files such as HTML, CSS and JavaScript. Express is also 
     used to adjust logging output, and create an easy-to-use environment for Socket.
     IO
-   
+
 *   **Socket.IO** - Socket.IO makes it dead simple to open a real-time
     communication channel between a web browser and a server (in this case, a server
     running Node.js and Express). By default, Socket.IO will use the
@@ -70,6 +70,7 @@ The major technologies used in the game are listed below:
     such as IE9 do not support websockets. In that case, Socket.IO will fall back to
     other technologies, such as using Flash sockets or an Ajax technique called
      *long-polling*.
+    
 *   Client side JavaScript – On the client side, a few libraries are used to
     make things a little easier:
    
@@ -86,7 +87,6 @@ The major technologies used in the game are listed below:
        
 *   CSS – Some standard CSS is used to add a little color and style to the
     game.
-   
 
 ## The Architecture
 
@@ -151,16 +151,17 @@ The `initGame` function in the agxgame module will set up the *event listeners*
 
 In the code above, the `gameSocket` is a reference to an object created by
 Socket.IO to encapsulate functionality regarding the unique socket connection 
-between the server and the connected browser. The`on` function creates a
+between the server and the connected browser. The `on` function creates a
 listener for a specific event and binds it to a function. So when the browser*
-emits* an event named `hostCreateNewGame` through the websocket, Socket.IO will
+emits* an event  named `hostCreateNewGame` through the websocket, Socket.IO will
 then execute the`hostCreateNewGame` function. Names of events and functions don
 ’t have to be the same, it is just a nice convenience.
 
 ## The Code – Client Side Setup
 
 When a web browser connects to the game, it is served index.html from contents
-of the “public” folder, which consists of an empty div with an id of*gameArea*
+of the “public” folder, which consists of an empty div with an id of*gameArea*. 
+Also within index.html are several HTML snippets contained within
 `<script type=text/template">` tags. These bits of HTML are substituted
 into the*gameArea* depending on what needs to be displayed on screen.
 
@@ -547,22 +548,21 @@ good introduction to get you excited about learning more. The
 [Socket.IO website][17] provides a decent amount of documentation, as does the
 [Socket.IO wiki][18] on GitHub.
 
- [1]: http://flippinawesome.org/authors/eric-terpstra
- [2]: https://github.com/ericterpstra/anagrammatix
- [3]: https://github.com/STRML/textFit
- [4]: https://github.com/ftlabs/fastclick
- [5]: img/architecture.png
- [6]: http://socket.io/#how-to-use
- [7]: https://github.com/ericterpstra/anagrammatix/blob/master/index.js
- [8]: https://github.com/ericterpstra/anagrammatix/blob/master/agxgame.js
- [9]: https://github.com/ericterpstra/anagrammatix/blob/master/public/app.js
- [10]: img/chrome_network-640x360.jpg
-
- [11]: https://github.com/ericterpstra/anagrammatix/blob/master/public/app.js#L16
- [12]: img/start_game.jpg
- [13]: https://github.com/ericterpstra/anagrammatix/blob/master/agxgame.js#L95
- [14]: img/gameplay.jpg
- [15]: https://github.com/ericterpstra/anagrammatix/blob/master/agxgame.js#L171
- [16]: img/game_over.jpg
- [17]: http://socket.io/
- [18]: https://github.com/learnboost/socket.io/wiki
+[1]: http://flippinawesome.org/authors/eric-terpstra
+[2]: https://github.com/ericterpstra/anagrammatix
+[3]: https://github.com/STRML/textFit
+[4]: https://github.com/ftlabs/fastclick
+[5]: img/architecture.png
+[6]: http://socket.io/#how-to-use
+[7]: https://github.com/ericterpstra/anagrammatix/blob/master/index.js
+[8]: https://github.com/ericterpstra/anagrammatix/blob/master/agxgame.js
+[9]: https://github.com/ericterpstra/anagrammatix/blob/master/public/app.js
+[10]: img/chrome_network-640x360.jpg
+[11]: https://github.com/ericterpstra/anagrammatix/blob/master/public/app.js#L16
+[12]: img/start_game.jpg
+[13]: https://github.com/ericterpstra/anagrammatix/blob/master/agxgame.js#L95
+[14]: img/gameplay.jpg
+[15]: https://github.com/ericterpstra/anagrammatix/blob/master/agxgame.js#L171
+[16]: img/game_over.jpg
+[17]: http://socket.io/
+[18]: https://github.com/learnboost/socket.io/wiki
